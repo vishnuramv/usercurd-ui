@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Avatar, Card, Input, InputNumber, Button, Form } from 'antd';
+import { Card, Input, Button, Form } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { useHistory } from "react-router";
 
@@ -7,7 +7,6 @@ const AddUser = () => {
 	const [name, setName] = useState('')
 	const [phoneno, setPhoneno] = useState('')
 	const [email, setEmail] = useState('')
-	const { Meta } = Card;
 	const history = useHistory();
 	const onFinish = (values) => {
 	    console.log('Success:', values);
@@ -25,9 +24,7 @@ const AddUser = () => {
 	        },
 	        body: JSON.stringify({ name: name, phone_no: phoneno, email: email }),
 	    };
-		const response = await fetch("https://usercrud-api.herokuapp.com/api/create/", reqOptions);
-	    const data = await response.json();
-	    history.push("/");
+		await fetch("https://usercrud-api.herokuapp.com/api/create/", reqOptions).then(() => history.push("/"));
 	}
 	return (
 		<div style={{ width:'100vw', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}} >

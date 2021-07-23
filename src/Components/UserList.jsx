@@ -1,6 +1,5 @@
 import { Button, Table, Typography, Space, Card, Row, Col } from 'antd';
 import React, { useEffect, useState } from 'react'
-import { useStateValue } from "../StateProvider";
 import { useHistory } from "react-router";
 
 
@@ -54,7 +53,6 @@ const UserList = () => {
 		await fetch("https://usercrud-api.herokuapp.com/api/delete/" + id, {method: "Delete",}).then(()=> fetchData());
 	}
 
-	const [{ users }, dispatch] = useStateValue();
 	const [userData, setUserData] = useState([])
 
 	const fetchData = async () => {

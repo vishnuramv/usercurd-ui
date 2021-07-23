@@ -1,25 +1,12 @@
 import React, { useState,useEffect } from 'react'
-import { Avatar, Card, Input, InputNumber, Button, Form } from 'antd';
+import { Card, Input, Button, Form } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { useHistory } from "react-router";
 
 const EditUser = ({ location }) => {
-	const [name, setName] = useState()
-	const [phoneno, setPhoneno] = useState()
-	const [email, setEmail] = useState()
-	const [id, setId] = useState()
-	const { Meta } = Card;
 	const history = useHistory();
 	const [form] = Form.useForm();
 
-	// useEffect(() => {
-	//     console.log('location.state.user', location.state.user.id)
-	//     // setName(location.state.user.name);
-	//     // setEmail(location.state.user.email);
-	//     // setPhoneno(location.state.user.phone_no);
-	//     // setId(location.state.user.id);
-	// }, [location.state]);
-	//     console.log(name, email, phoneno, id)
 
 	useEffect(() => {
 		form.setFieldsValue({
@@ -27,7 +14,7 @@ const EditUser = ({ location }) => {
 		    email:location.state.user.email,
 		    phone_no:location.state.user.phone_no,
 		})
-	}, [location.state])
+	}, [location.state, form])
 
 
 	
